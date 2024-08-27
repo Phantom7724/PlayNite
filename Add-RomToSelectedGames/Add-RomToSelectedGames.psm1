@@ -56,5 +56,19 @@ function GetMainMenuItems {
     return $menuItems
 }
 
+# 添加右键菜单项目
+function GetGameMenuItems {
+    param($getGameMenuItemsArgs)
+
+    # 创建菜单项
+    $GetGameMenuItemsmenuItems = @()
+
+    $romGameMenuItem = New-Object Playnite.SDK.Plugins.ScriptGameMenuItem
+    $romGameMenuItem.Description = "添加Rom"
+    $romGameMenuItem.FunctionName = "Add-RomToSelectedGames"
+    $GamemenuItems += $romGameMenuItem
+
+    return $GamemenuItems
+}
 # 导出函数
-Export-ModuleMember -Function Connect-PlayniteSession, Add-RomToSelectedGames, Add-ActionToSelectedGames, GetMainMenuItems
+Export-ModuleMember -Function Connect-PlayniteSession, Add-RomToSelectedGames, Add-ActionToSelectedGames, GetMainMenuItems, GetGameMenuItems

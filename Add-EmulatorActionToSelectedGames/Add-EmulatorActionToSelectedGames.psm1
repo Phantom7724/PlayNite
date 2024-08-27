@@ -22,12 +22,13 @@ function Add-EmulatorActionToSelectedGames {
 
         # 创建新的 GameAction
         $emulatorAction = New-Object Playnite.SDK.Models.GameAction
-        $emulatorAction.Name = "Emulator Action"  # 可以根据需要设置名称
+        $emulatorAction.Name = "Run in Japanese"  # 设置名称
         $emulatorAction.Type = [Playnite.SDK.Models.GameActionType]::Emulator
-        $emulatorAction.Path = ""  # 如果有特定的路径需求可以设置
-        $emulatorAction.Arguments = ""  # 如果有特定的参数需求可以设置
-        $emulatorAction.WorkingDir = ""  # 如果有特定的工作目录需求可以设置
         $emulatorAction.IsPlayAction = $true  # 设置 IsPlayAction 为勾选状态
+
+        # 设置模拟器和配置
+        $emulatorAction.EmulatorId = [Guid]::Parse("d37de673-d1d7-4029-b845-92abd6e12fa6")  # 替换为实际的 EmulatorId
+        $emulatorAction.EmulatorProfileId = "#custom_b38afad1-8abd-4e70-aed3-5265a51fc420"  # 设置为 "Run in Japanese" 的配置 ID
 
         # 添加 GameAction 到游戏的 GameActions 列表
         if ($game.GameActions -eq $null) {
@@ -57,6 +58,20 @@ function GetMainMenuItems {
 
     return $menuItems
 }
+# 添加右键菜单项目
+function GetGameMenuItems {
+    param($getGameMenuItemsArgs)
+
+    # 创建菜单项
+    $GamemenuItems = @()
+
+    $emulatorGameMenuItem = New-Object Playnite.SDK.Plugins.ScriptGameMenuItem
+    $emulatorGameMenuItem.Description = "添加Locale Emulator运行指令"
+    $emulatorGameMenuItem.FunctionName = "Add-EmulatorActionToSelectedGames"
+    $GamemenuItems += $emulatorGameMenuItem
+
+    return $GamemenuItems
+}
 
 # 导出函数
-Export-ModuleMember -Function Connect-PlayniteSession, Add-EmulatorActionToSelectedGames, GetMainMenuItems
+Export-ModuleMember -Function Connect-PlayniteSession, Add-EmulatorActionToSelectedGames, GetMainMenuItems, GetGameMenuItems
