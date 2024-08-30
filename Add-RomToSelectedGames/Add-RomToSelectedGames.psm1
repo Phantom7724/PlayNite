@@ -38,7 +38,7 @@ function Add-RomToSelectedGames {
     }
 
     # 使用 Playnite 对话框显示结果
-    $PlayniteApi.Dialogs.ShowMessage("Added ROM to $changedCount game(s)")
+    $PlayniteApi.Dialogs.ShowMessage("已为 $changedCount 个游戏添加ROM信息")
 }
 
 # 添加主菜单项目
@@ -49,7 +49,7 @@ function GetMainMenuItems {
     $menuItems = @()
 
     $romMenuItem = New-Object Playnite.SDK.Plugins.ScriptMainMenuItem
-    $romMenuItem.Description = "Add ROM to Selected Games"
+    $romMenuItem.Description = "选择游戏 添加ROM信息"
     $romMenuItem.FunctionName = "Add-RomToSelectedGames"
     $menuItems += $romMenuItem
 
@@ -61,10 +61,10 @@ function GetGameMenuItems {
     param($getGameMenuItemsArgs)
 
     # 创建菜单项
-    $GetGameMenuItemsmenuItems = @()
+    $GamemenuItems = @()
 
     $romGameMenuItem = New-Object Playnite.SDK.Plugins.ScriptGameMenuItem
-    $romGameMenuItem.Description = "添加Rom"
+    $romGameMenuItem.Description = "添加ROM信息"
     $romGameMenuItem.FunctionName = "Add-RomToSelectedGames"
     $GamemenuItems += $romGameMenuItem
 

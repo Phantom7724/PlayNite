@@ -41,7 +41,7 @@ function Add-EmulatorActionToSelectedGames {
     }
 
     # 使用 Playnite 对话框显示结果
-    $PlayniteApi.Dialogs.ShowMessage("Added Emulator action to $changedCount game(s)")
+    $PlayniteApi.Dialogs.ShowMessage("已为 $changedCount 个游戏添加LE运行指令")
 }
 
 # 添加主菜单项目
@@ -52,7 +52,7 @@ function GetMainMenuItems {
     $menuItems = @()
 
     $emulatorMenuItem = New-Object Playnite.SDK.Plugins.ScriptMainMenuItem
-    $emulatorMenuItem.Description = "Add Emulator Action to Selected Games"
+    $emulatorMenuItem.Description = "选择游戏 添加Locale Emulator运行指令"
     $emulatorMenuItem.FunctionName = "Add-EmulatorActionToSelectedGames"
     $menuItems += $emulatorMenuItem
 

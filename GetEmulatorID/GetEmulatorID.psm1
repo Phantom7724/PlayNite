@@ -36,7 +36,7 @@ function GetMainMenuItems {
     param($getMainMenuItemsArgs)
     
     $menuItem = New-Object Playnite.SDK.Plugins.ScriptMainMenuItem
-    $menuItem.Description = "Write Emulator Info to File"
+    $menuItem.Description = "输出模拟器信息"
     $menuItem.FunctionName = "Write-EmulatorInfoToFileFromMenu"  # 当点击菜单时，调用的函数
     return $menuItem
 }
