@@ -1,4 +1,0 @@
-Name: Locale Emulator
-ID: d37de673-d1d7-4029-b845-92abd6e12fa6
-Profile ID: #builtin_71dc6b43-752f-45cc-a78f-a638a8ac9002, Name: Default Profile ID: #custom_b38afad1-8abd-4e70-aed3-5265a51fc420, Name: 1 Run in Japanese Profile ID: #custom_5b445bee-af4b-4f1c-ad62-4ef553a04ccc, Name: 2 Run in Japanese (Fake) Profile ID: #custom_62deba67-39ea-4609-9b5f-385104d665c9, Name: 3 Run in Japanese (Admin) Profile ID: #custom_45eda494-f170-4f8f-be51-ba9f787396ef, Name: 4 Run in Japanese (Admin&Fake)
-
